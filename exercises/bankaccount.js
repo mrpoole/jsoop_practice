@@ -23,9 +23,11 @@ class Account{
 	remove(amount){
 		if(typeof amount === "number" && amount > 0) {
 			if(amount > this.totalCash) {
-				this.totalCash = this.totalCash - this.totalCash;
-				return 4; //come back to this
-			} else if(amount < this.totalCash) {
+				var amountWithdrawn = this.totalCash;
+				this.totalCash = 0;
+				return amountWithdrawn;
+			} else if (amount < this.totalCash) {
+				this.totalCash -= amount;
 				return amount;
 			}
 		} else {
