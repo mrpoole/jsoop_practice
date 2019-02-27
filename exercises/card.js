@@ -14,10 +14,14 @@ class Card{
 
 class Deck{
 	constructor(){
+		this.storage = [];
 		//takes in nothing
 		//make storage for your card objects
 	}
 	addCard( suit, faceValue ){
+		this.newCard = new Card(suit, faceValue);
+		this.storage.push(this.newCard);
+		return this.storage.length;
 		//adds a card to the deck
 		//takes in a string suit and faceValue
 		//makes a new card Object from the Card template
@@ -25,6 +29,7 @@ class Deck{
 		//returns the amount of cards currently stored
 	}
 	shuffle(){
+		
 		//reorders the cards in the storage array in a random order
 		//takes in nothing
 		//returns nothing

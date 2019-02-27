@@ -2,9 +2,16 @@
 
 class Account{
 	constructor(){
+		this.totalCash = 0;
 		//store the amount of money in the account
 	}
-	add(  ){
+	add(amount){
+		if(typeof amount === "number" && amount > 0) {
+			this.totalCash = this.totalCash + amount;
+		} else {
+			return false;
+		}
+		return this.totalCash;
 		//add money to the amount stored in the account
 		//takes in an amount
 		//checks if it is actually a number greater than 0
@@ -12,7 +19,19 @@ class Account{
 		//adds it to the existing amount
 		//returns the new amount in the account
 	}
-	remove( amount ){
+	
+	remove(amount){
+		if(typeof amount === "number" && amount > 0) {
+			if(amount > this.totalCash) {
+				this.totalCash = this.totalCash - this.totalCash;
+				return 4; //come back to this
+			} else if(amount < this.totalCash) {
+				return amount;
+			}
+		} else {
+			return false;
+		};
+		
 		//removes funds from an account
 		//checks if amount is actually a number greater than 0
 			//if not, return false
@@ -22,6 +41,7 @@ class Account{
 		//return the amount actually withdrawn
 	}
 	getAmount(){
+		return this.totalCash;
 		//returns the amount in the account
 	}
 }

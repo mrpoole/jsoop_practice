@@ -1,11 +1,17 @@
-
-
 class Bank{
-	constructor(){
+	constructor(bankName){
+		this.bankName = bankName;
+		this.accounts = {};
 		//takes in the name of the bank.
 		//makes an object to store all accounts into
 	}
-	makeAccount( ){
+	makeAccount(accountNumber){
+		if(this.accounts.hasOwnProperty(accountNumber)) {
+			return false;
+		} else {
+			this.accounts = {"Account Number": accountNumber};
+			return ;
+		}
 		//makes an account
 		//takes in the account number of an account
 		//checks if the account number already exists in the account storage object in the constructor
@@ -13,7 +19,12 @@ class Bank{
 		//otherwise makes an new Account object, storing it into the storage object in the constructor
 		//returns the Account object that was constructed
 	}
-	checkForAccount(  ){
+	checkForAccount(accountNumber){
+		if (accountNumber instanceof this.accounts) {
+			return true;
+		} else {
+			return false;
+		}
 		//checks if an account exists or not
 		//takes in the account number of an account
 		//returns false if the account does not exist in the accounts object from the constructor
